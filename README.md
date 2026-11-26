@@ -60,7 +60,7 @@ notebooks/demo.ipynb
 
 ### Colab
 ```python
-!git clone https://github.com/RawanBadr24/AI-Personalized-Learning-Resource-Discovery.git
+!git clone https://github.com/<you>/learning-resource-agent.git
 %cd learning-resource-agent
 !pip install -q -r requirements.txt
 ```
@@ -93,4 +93,9 @@ Model, `max_cycles` (3), `max_searches_per_cycle` (4), `max_resources_to_evaluat
 | quality | 0.10 | quality | 0.15 |
 | cost (rule-based) | 0.10 | practical value (= coverage) | 0.10 |
 
+## Notes
 
+- `assess_user_level&preferences` from the design doc is named `assess_user_level_and_preferences` (`&` is not valid in Python).
+- The design doc's `evaluate_relevance&completeness`, `generate_search_feedback`, `identify_prerequisites` and `generate_practice_tasks` are now done by the agents themselves (they reason, then record results through tools such as `record_evaluations`, `request_more_search`, `save_roadmap`) instead of hidden nested LLM calls.
+- Web results have an `Unknown` price (a search snippet can't tell); GitHub, Hugging Face and YouTube are `Free`. Difficulty/duration are mostly unavailable; the roadmap labels default time estimates.
+- A run makes many LLM calls (several per agent per cycle). Groq's free tier is rate-limited, so a run may be slow or hit limits; lower `max_resources_to_evaluate` if needed.
