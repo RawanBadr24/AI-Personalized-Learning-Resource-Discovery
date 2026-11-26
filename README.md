@@ -60,7 +60,7 @@ notebooks/demo.ipynb
 
 ### Colab
 ```python
-!git clone https://github.com/RawanBadr24/Learning-Resources-Agent.git
+!git clone https://github.com/RawanBadr24/AI-Personalized-Learning-Resource-Discovery.git
 %cd learning-resource-agent
 !pip install -q -r requirements.txt
 ```
